@@ -4,7 +4,8 @@ class CoordinatesFinder
 
     # Single Responsibility Principle:
     # CoordinatesFinder class has the responsibility of finding coordinates for a given place_id.
-    def call(place_id)
+    def call(place_id = nil)
+      return nil if !place_id || place_id.length < 4 || !!"#{place_id}"[/[!@#$%^&*()]/]
       setup({api_key: ENV['GOOGLE_MAPS_API_KEY']}) unless defined?(@api_key) && defined?(@http_client)
       url = build_api_url(place_id)
       res = make_request(url)
