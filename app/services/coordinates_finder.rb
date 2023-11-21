@@ -1,4 +1,14 @@
 class CoordinatesFinder
+  
+  def setup(http_client = HTTParty, api_key = ENV["GOOGLE_MAPS_API_KEY"])
+    @http_client = http_client
+    @api_key = api_key
+    return {
+      http_client: http_client,
+      api_key: api_key
+    }
+  end
+  
   # Single Responsibility Principle:
   # CoordinatesFinder class has the responsibility of finding coordinates for a given place_id.
   def self.call(place_id)
