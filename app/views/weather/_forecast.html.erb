@@ -1,0 +1,17 @@
+<div class="p-5">
+    <% if cached %>
+        <button class="rounded-full mt-3 mb-5 bg-gray-100 shadow px-2 py-1">Cached Result</button>
+    <% end %>
+        <h1 class="text-5xl">It's Currently: <span class="font-bold"><%= forecast["currentConditions"]["temp"] %>°</span></h1>
+    <div class="extended mt-4">
+        <ul class="list-none ">
+        <% forecast["days"].each_with_index do |day, index| %>
+            <% next if index == 0 %>
+                <li class="day p-4 shadow inline-block text-center">
+                    <h2><%= formatted_date(day["datetime"]) %></h2>
+                    <h1 class="font-bold text-3xl"><%= day["temp"] %>°</h1>
+                </li>
+            <% end %>
+        </ul>
+    </div>
+</div>
