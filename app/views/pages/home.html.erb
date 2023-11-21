@@ -1,0 +1,23 @@
+<!-- views/pages/home.html.erb -->
+<div data-controller="address">
+    <h1 class="text-4xl	mb-4 font-bold">
+        Weather Forecast:
+    </h1>
+
+    <input
+        type="text"
+        class="shadow  appearance-none border rounded w-full py-2 px-3 text-red-700 leading-tight focus:outline-none focus:shadow-outline"
+        name=""
+        id=""
+        autocomplete="off"
+        placeholder="Type Address..."
+        data-address-target="input"
+        data-action="input->address#searchInput"
+    >
+
+    <div data-address-target="suggestions"></div>
+
+    <div data-address-target="forecast"></div>
+</div>
+
+
