@@ -4,6 +4,7 @@ class AddressSuggestor
     # Single Responsibility Principle:
     # Orchestrates the workflow of building URL, making the request, and parsing the response.
     def call(address)
+      return [] if !address
       setup({api_key: ENV['GOOGLE_MAPS_API_KEY']}) unless defined?(@api_key) && defined?(@http_client)
       url = build_api_url(address)
       response = make_request(url)
