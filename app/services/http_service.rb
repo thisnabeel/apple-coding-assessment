@@ -4,9 +4,9 @@ module HttpService
   class_methods do
     attr_accessor :http_client, :api_key
 
-    def setup(http_client = HTTParty, api_key = ENV["GOOGLE_MAPS_API_KEY"])
-      @http_client = http_client
-      @api_key = api_key
+    def setup(options)
+      @http_client = options[:http_client] || HTTParty
+      @api_key = options[:api_key]
       return {
         http_client: http_client,
         api_key: api_key
