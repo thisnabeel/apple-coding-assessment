@@ -1,0 +1,5 @@
+<ul class="absolute">
+  <% suggestions.each do |suggestion| %>
+    <li place_id="<%= suggestion["place_id"] %>" data-action="click->address#select" class="shadow bg-white appearance-none border rounded w-full py-2 px-3 text-red-700 leading-tight hover:bg-cyan-100 hover:shadow-outline"><%= suggestion["description"] %></li>
+  <% end %>
+</ul>
